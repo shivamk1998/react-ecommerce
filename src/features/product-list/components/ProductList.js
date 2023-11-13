@@ -5,12 +5,13 @@ import {
   incrementAsync,
 
 
-} from './ProductListSlice.js.js';
+} from '../ProductSlice.js.js';
 
 import { Fragment, useState } from 'react'
 import { Dialog, Disclosure, Menu, Transition } from '@headlessui/react'
 import { XMarkIcon } from '@heroicons/react/24/outline'
 import { ChevronDownIcon, FunnelIcon, MinusIcon, PlusIcon, Squares2X2Icon, ChevronLeftIcon, ChevronRightIcon } from '@heroicons/react/20/solid'
+import { Link } from 'react-router-dom';
 
 const sortOptions = [
   { name: 'Most Popular', href: '#', current: true },
@@ -224,7 +225,7 @@ export default function ProductList() {
         </Transition.Root>
 
         <main className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="flex items-baseline justify-between border-b border-gray-200 pb-6 pt-24">
+          <div className="flex items-baseline justify-between border-b border-gray-200 pb-6 pt-2">
             <h1 className="text-4xl font-bold tracking-tight text-gray-900">All products</h1>
 
             <div className="flex items-center">
@@ -352,6 +353,8 @@ export default function ProductList() {
 
         <div className="mt-6 grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-4 xl:gap-x-8">
           {products.map((product) => (
+          
+            <Link to="/product-detail">
             <div key={product.id} className="group relative">
               <div className="aspect-h-1 aspect-w-1 w-full overflow-hidden rounded-md bg-gray-200 lg:aspect-none group-hover:opacity-75 lg:h-80">
                 <img
@@ -373,6 +376,7 @@ export default function ProductList() {
                 <p className="text-sm font-medium text-gray-900">{product.price}</p>
               </div>
             </div>
+            </Link>
           ))}
         </div>
       </div>

@@ -1,6 +1,6 @@
 import React from 'react';
 import './App.css';
-import ProductList from './features/product-list/ProductList';
+import ProductList from './features/product-list/components/ProductList';
 import Navbar from './features/navbar/Navbar';
 import Home from './pages/Home';
 import LoginPage from './pages/LoginPage';
@@ -12,6 +12,8 @@ import {
   Link,
 } from "react-router-dom";
 import { Cart } from './features/cart/Cart';
+import Checkout from './pages/Checkout';
+import ProductDetail from './features/product-list/components/ProductDetail';
 
 const router = createBrowserRouter([
   {
@@ -29,6 +31,14 @@ const router = createBrowserRouter([
   {
     path: "/cart",
     element: <Cart></Cart>,
+  },
+  {
+    path:"/checkout",
+    element:<Checkout></Checkout>
+  },
+  {
+    path:"/product-detail",
+    element:<ProductDetail></ProductDetail>
   }
 ]);
 
